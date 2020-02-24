@@ -170,7 +170,7 @@ class GCN(Model):
         self.layers.append(GraphConvolution(input_dim=self.input_dim,
                                             output_dim=FLAGS.hidden1,
                                             placeholders=self.placeholders,
-                                            act=tf.nn.relu,
+                                            act=tf.nn.leaky_relu,  ##relu
                                             dropout=True,
                                             sparse_inputs=True,
                                             logging=self.logging))
@@ -212,7 +212,7 @@ class GCN_Align(Model):
         self.layers.append(GraphConvolution(input_dim=self.input_dim,
                                             output_dim=self.output_dim,
                                             placeholders=self.placeholders,
-                                            act=tf.nn.relu,
+                                            act=tf.nn.leaky_relu,
                                             dropout=False,
                                             featureless=self.featureless,
                                             sparse_inputs=self.sparse_inputs,
